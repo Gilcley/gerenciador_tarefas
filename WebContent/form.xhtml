@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:b="http://bootsfaces.net/ui"
+		xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<title>Gerenciador ESig</title>
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<p:messages id="messages" showDetail="false" styleClass="mensagens" autoUpdate="true" closable="true" escape="false" />
+			<div align="center">
+				<p:panel header="#{tarefaMbean.descricaoOperacao} Tarefa" style="width:50%;">
+					<b:row>
+						<b:column>
+							<b:inputText value="#{tarefaMbean.tarefa.titulo}" title="Titulo" label="Título"
+								 required="true" requiredMessage="Informe um título" maxlength="200"/>
+						</b:column>
+					</b:row>
+					<b:row>
+						<b:column>
+							<b:inputTextarea value="#{tarefaMbean.tarefa.descricao}" title="Descrição" label="Descrição"
+								required="true" requiredMessage="Informe uma descrição"/>
+						</b:column>
+					</b:row>
+					
+					<b:row>
+						<b:column col-md="6">
+							<b:selectOneMenu label="Responsável" value="#{tarefaMbean.tarefa.responsavel.id}">
+								<f:selectItem itemValue="0" itemLabel="SELECIONE"/>
+								<f:selectItems value="#{tarefaMbean.pessoas}"/>
+							</b:selectOneMenu>
+						</b:column>
+						
+						<b:column col-md="6">
+							<b:selectOneMenu label="Prioridade" value="#{tarefaMbean.tarefa.prioridade.id}">
+								<f:selectItem itemValue="0" itemLabel="SELECIONE"/>
+								<f:selectItems value="#{tarefaMbean.prioridades}"/>
+							</b:selectOneMenu>
+						</b:column>
+					</b:row>
+					
+					<b:row >
+						<b:column col-md="6">
+							<b:datepicker label="Deadline" value="#{tarefaMbean.tarefa.deadline}" required="true" requiredMessage="Informe o prazo"/>
+						</b:column>
+					</b:row>
+					<f:facet name="footer" >
+						<b:row >
+							<b:column style="text-align:center;">
+									<b:commandButton value="#{tarefaMbean.descricaoOperacao}" action="#{tarefaMbean.salvar}" look="success" icon-awesome="fas fa-save"/>
+									<p:spacer width="5px;" />
+									<b:commandButton value="Cancelar" action="#{tarefaMbean.inicio}" look="danger" icon-awesome="fas fa-times" immediate="true" />
+							</b:column>
+						</b:row>
+					</f:facet>
+				</p:panel>
+			</div>
+		</h:form>
+	</h:body>
+</html>

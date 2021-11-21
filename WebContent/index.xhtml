@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:b="http://bootsfaces.net/ui"
+		xmlns:p="http://primefaces.org/ui">
+		
+	<h:head>
+		<title>Gerenciador ESig</title>
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<p:messages id="messages" showDetail="false" styleClass="mensagens" autoUpdate="true" closable="true" escape="false" />
+			<div align="center">
+				<p:panel header="Gerenciador de Tarefas" style="width:50%;">
+					<f:facet name="footer">
+						<b:row>
+							<b:column style="text-align:center;">
+								<b:commandButton value="Cadastrar" look="primary"
+									icon-awesome="fas fa-plus"
+									action="#{tarefaMbean.iniciarCadastro}" size="lg"
+									style="width:200px;" />
+							</b:column>
+						</b:row>
+						<br></br>
+						<b:row>
+							<b:column style="text-align:center;">
+								<b:commandButton value="Consultar" look="primary"
+									icon-awesome="fas fa-search"
+									action="#{tarefaMbean.listar}" size="lg" style="width:200px;" />
+							</b:column>
+					</b:row>
+					</f:facet>
+				</p:panel>
+			</div>
+		</h:form>
+	</h:body>
+</html>
