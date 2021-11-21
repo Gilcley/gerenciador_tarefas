@@ -17,6 +17,8 @@ import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenerationTime;
 
 /**
+ * Classe de domínio que representa a entidade tarefa
+ * 
  * @author Gilcley Carvalho
  * */
 @Entity
